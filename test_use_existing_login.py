@@ -1,0 +1,7 @@
+import config
+from src import location, auth
+
+
+access_token = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE1Nzg1NjI1NDcsIm5iZiI6MTU3ODU2MjU0NywianRpIjoiZWQwNzI2NDItNzQwMy00ZWZhLTk5MGMtOGQ2M2I5MjlkZWM4IiwiZXhwIjoxNTc4NTYzNDQ3LCJpZGVudGl0eSI6MTIwLCJmcmVzaCI6ZmFsc2UsInR5cGUiOiJhY2Nlc3MifQ.XZirypJ2xJbgaAqI0NgfoqQhPfeLbZxZuH4MsYG9Juk'
+if location.save_location(access_token):
+    print('success')

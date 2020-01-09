@@ -1,4 +1,4 @@
-from src import auth, intake, rating
+from src import auth, intake, rating, location
 from config import USEREMAIL
 
 print('running tests for ' + USEREMAIL)
@@ -29,3 +29,6 @@ print('saved answers succesfully')
 
 if rating.rate_intervention(ACCESS):
     print('saved intervention response successfully')
+
+if location.save_location(ACCESS):
+    print('saved location successfully')

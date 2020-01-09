@@ -25,11 +25,11 @@ def register():
     return False
 
 
-def login():
+def login(email=config.USEREMAIL, password=config.PASSWORD):
     global access_token, refresh_token
     r = requests.post(MAIN_API + USERMANAGER + '/login', json={
-        'email': config.USEREMAIL,
-        'password': config.PASSWORD
+        'email': email,
+        'password': password
     })
     if r.status_code == 200:
         data = r.json()
