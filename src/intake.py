@@ -8,7 +8,7 @@ def get_questions(access_token):
     r = requests.get(MAIN_API + COACHMANAGER + '/get_questions', headers=get_headers(access_token))
     if r.status_code == 200:
         return r.json()
-    print('failed to get questions')
+    print('failed to get questions', r.status_code)
     return None
 
 

@@ -7,5 +7,5 @@ if auth.register():
     if access_token:
         print('logged in')
         print(config.USEREMAIL)
-        print(access_token)
-        print(refresh_token)
+        print('access_token:', access_token)
+        print('access_token:', refresh_token)

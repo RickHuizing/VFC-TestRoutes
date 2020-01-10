@@ -40,9 +40,9 @@ def login(email=config.USEREMAIL, password=config.PASSWORD):
     return None, None
 
 
-def refresh_access_token():
+def refresh_access_token(refr_token=refresh_token):
     global access_token
-    r = requests.get(MAIN_API + USERMANAGER + '/refresh-token', headers=get_headers(refresh_token))
+    r = requests.get(MAIN_API + USERMANAGER + '/refresh-token', headers=get_headers(refr_token))
     if r.status_code == 200:
         data = r.json()
         access_token = data['access_token']
