@@ -2,7 +2,7 @@ import json
 
 from src import auth, intake
 
-access_token = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE1Nzg2ODExMjYsIm5iZiI6MTU3ODY4MTEyNiwianRpIjoiY2VjZDVkMGItMWU2Yy00YzY2LTk0NjgtNDEzYmRkYjUwYjU1IiwiZXhwIjoxNTc4NjgyMDI2LCJpZGVudGl0eSI6OTAsImZyZXNoIjpmYWxzZSwidHlwZSI6ImFjY2VzcyJ9.wTAq_HXpfI0EOVt63ZguMw_U0C1pzv4PgeS6GAVp6QE'
+access_token = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE1Nzg3NDY3NjQsIm5iZiI6MTU3ODc0Njc2NCwianRpIjoiZTBiNzBkYmItN2MyYy00MWVmLTg4N2YtNDk3ZDZlM2Q0MmYxIiwiZXhwIjoxNTc4NzQ3NjY0LCJpZGVudGl0eSI6OTAsImZyZXNoIjpmYWxzZSwidHlwZSI6ImFjY2VzcyJ9.kAZ0wMijTLVeITpIfbSDxJH7WqE0LhN6TbPTRCZjxmU'
 refresh_token = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE1Nzg2ODExMjYsIm5iZiI6MTU3ODY4MTEyNiwianRpIjoiZTQzNGUzNzEtOWE4OS00N2MxLTk1NWMtZGUzZGVkNzE5N2JhIiwiaWRlbnRpdHkiOjkwLCJ0eXBlIjoicmVmcmVzaCJ9.lRUxXkECFTsGmeAgPkimqjhmgCjv_gnvyTbNsLKc1JY'
 if access_token == '':
     print('enter fresh tokens')
@@ -39,3 +39,5 @@ for section, questions in questions.items():
             for a in answers:
                 print(' ', ' ', ' ', a)
             print(' ', "    ]")
+
+print(intake.post_answers(access_token))

@@ -18,7 +18,7 @@ if questions:
     print('fetched questions successfully')
     print(questions)
 
-ACCESS = auth.refresh_access_token()
+ACCESS = auth.refresh_access_token(REFRESH)
 if ACCESS is None:
     exit()
 print('successfully refreshed access token')

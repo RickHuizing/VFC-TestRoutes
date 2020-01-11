@@ -2,7 +2,9 @@ import random
 import string
 
 MAIN_API = 'http://localhost:8075'
+MAIN_API = 'http://13.95.164.157:80'
 USERMANAGER = '/auth'
+USERMANAGER = '/usermanager'
 COACHMANAGER = '/coachmanager'
 
 

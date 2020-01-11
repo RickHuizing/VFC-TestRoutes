@@ -14,7 +14,12 @@ def get_questions(access_token):
 
 def post_answers(access_token):
     answers = {
-        "question_ids": "1,2, 5", "answers": "-1, 2, 3", "item_ids": "1,2,3", "ratings": "1,5,3"
+        'answers': {
+            '1': 2, '2': 6, '5': 14
+        },
+        'ratings': {
+            '1': 1, '2': 5, '3': 3
+        }
     }
     r = requests.post(MAIN_API + COACHMANAGER + '/answers', headers=get_headers(access_token), json=answers)
     if r.status_code == 200:
