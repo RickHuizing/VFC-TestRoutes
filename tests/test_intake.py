@@ -6,7 +6,6 @@ access_token = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE1Nzg3NDY3NjQsIm5
 refresh_token = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE1Nzg2ODExMjYsIm5iZiI6MTU3ODY4MTEyNiwianRpIjoiZTQzNGUzNzEtOWE4OS00N2MxLTk1NWMtZGUzZGVkNzE5N2JhIiwiaWRlbnRpdHkiOjkwLCJ0eXBlIjoicmVmcmVzaCJ9.lRUxXkECFTsGmeAgPkimqjhmgCjv_gnvyTbNsLKc1JY'
 if access_token == '':
     print('enter fresh tokens')
-    import generate_user
     exit()
 
 response: dict = intake.get_questions(access_token)
