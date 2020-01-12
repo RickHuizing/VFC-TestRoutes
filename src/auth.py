@@ -21,7 +21,7 @@ def register():
     })
     if r.status_code == 200:
         return True
-    print(r.content)
+    print(r.status_code, r.content)
     return False
 
 
