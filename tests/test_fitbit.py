@@ -1,3 +1,4 @@
+import json
 import time
 
 from src import auth, fitbit
@@ -15,6 +16,13 @@ if response is None:
     if response is None:
         exit()
     print(access_token)
-
 print('keys:', response.keys())
 print('data:', response)
+
+response = fitbit.get_steps(access_token)
+if response is None:
+    exit()
+print('keys:', response.keys())
+print(response)
+print('activities-steps:', json.dumps(response['activities-steps'], indent=1))
+print('activities-steps-intraday:', response['activities-steps-intraday'])

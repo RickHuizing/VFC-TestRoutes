@@ -1,6 +1,6 @@
 import requests
 
-from config import MAIN_API, TRACKERMANAGER, USERMANAGER
+from config import MAIN_API, TRACKERMANAGER
 from src.auth import get_headers
 
 
@@ -9,6 +9,14 @@ def get_url(access_token):
     if r.status_code == 200:
         return r.json()
     print('failed to get authorisation url', r.status_code)
+    return None
+
+
+def get_steps(access_token):
+    r = requests.get(MAIN_API + TRACKERMANAGER + '/fitbit/get_steps', headers=get_headers(access_token))
+    if r.status_code == 200:
+        return r.json()
+    print('failed to get steps', r.status_code)
     return None
 
 
