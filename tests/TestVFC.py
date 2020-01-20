@@ -9,6 +9,8 @@ if not registered:
 print('registered successful')
 
 ACCESS, REFRESH = auth.login()
+print(ACCESS)
+print(REFRESH)
 if ACCESS is None:
     exit()
 print('logged in successful')

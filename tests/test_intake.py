@@ -1,9 +1,14 @@
 import json
+import random
+
+import pandas
+import requests
 
 from src import auth, intake
+from tests import generate_user
 
-access_token = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE1Nzg4MzY4OTgsIm5iZiI6MTU3ODgzNjg5OCwianRpIjoiMTA3ZmFmOTMtM2VhOC00ODcxLWFlMzEtMzljNzcwZGE2NWVkIiwiZXhwIjoxNTc4ODM3Nzk4LCJpZGVudGl0eSI6MTA0NCwiZnJlc2giOmZhbHNlLCJ0eXBlIjoiYWNjZXNzIn0.8nlB24xKOwsIEjyrIyK9UOD3UWJzJTZ48GIk9ExxpqI'
-refresh_token = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE1Nzg4MzY4OTgsIm5iZiI6MTU3ODgzNjg5OCwianRpIjoiMWY1OWMyMDEtMTIyMy00MTI4LWIzODgtNDFiMjM5M2JiZGRlIiwiaWRlbnRpdHkiOjEwNDQsInR5cGUiOiJyZWZyZXNoIn0.yQcfxrW7v6-tTfF89Jn_ZlC7eL4IXi_EPiAMZU7IiA4'
+access_token, refresh_token = generate_user.register()
+
 if access_token == '':
     print('enter fresh tokens')
     exit()
@@ -16,8 +21,9 @@ if response is None:
         exit()
     print(access_token)
 
-print('keys:', response.keys())
+u_answers = intake.build_answers_from_response(response)
 
+print('keys:', response.keys())
 questions = response.pop('questions')
 print(json.dumps(response, indent=1))
 items = response['items']
@@ -39,4 +45,15 @@ for section, questions in questions.items():
                 print(' ', ' ', ' ', a)
             print(' ', "    ]")
 
-print(intake.post_answers(access_token))
+# print(json.dumps(u_answers, indent=1))
+print(intake.post_answers(u_answers, access_token))
+
+userdata = 'http://localhost:8082'
+GET_USERS = "/api/get_users"
+users = requests.get(userdata + GET_USERS)
+user_df = pandas.DataFrame.from_dict(users.json())
+user_df = user_df.assign(db_id=user_df.id)
+r = requests.get('http://localhost:8080/get_demographics', json={'users': user_df.to_json()})
+user_df = pandas.DataFrame.from_dict(r.json())
+
+print()

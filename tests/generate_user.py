@@ -10,7 +10,7 @@ def register():
             print('logged in')
             print(config.USEREMAIL)
             print('access_token:', access_token)
-            print('access_token:', refresh_token)
+            print('refresh_token:', refresh_token)
             return access_token, refresh_token
     return None, None
 
