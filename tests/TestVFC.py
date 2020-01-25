@@ -24,8 +24,9 @@ ACCESS = auth.refresh_access_token(REFRESH)
 if ACCESS is None:
     exit()
 print('successfully refreshed access token')
+u_answers = intake.build_answers_from_response(questions)
 
-if not intake.post_answers(ACCESS):
+if not intake.post_answers(u_answers, ACCESS):
     exit()
 print('saved answers succesfully')
 

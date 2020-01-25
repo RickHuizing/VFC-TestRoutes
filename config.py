@@ -2,11 +2,11 @@ import random
 import string
 
 MAIN_API = 'http://localhost:8075'
-# MAIN_API = 'http://13.95.164.157:80'
+# MAIN_API = 'https://virtualcoachdev.cmi.hanze.nl'
 USERMANAGER = '/auth'
 COACHMANAGER = '/coachmanager'
 TRACKERMANAGER = '/trackermanager'
-
+VOORSPELSERVICE = 'http://localhost:8086'
 
 def random_email_prefix():
     random.seed()

@@ -44,7 +44,7 @@ for section, questions in questions.items():
             for a in answers:
                 print(' ', ' ', ' ', a)
             print(' ', "    ]")
-
+print()
 # print(json.dumps(u_answers, indent=1))
 print(intake.post_answers(u_answers, access_token))
 

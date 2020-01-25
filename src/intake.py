@@ -32,9 +32,9 @@ def build_answers_from_response(response):
             question_type = str(question['type'])
             question_type_str = question_types[question_type]
             if question_type_str == '':
-                question_answers = [list(qu.keys())[0] for qu in question['answers']]
+                question_answers = [qu['value'] for qu in question['answers']]
             elif question_type_str in ['mc', 'cb', 'mc_statement', 'loss_choice']:
-                question_answers = [list(qu.keys())[0] for qu in question['answers']]
+                question_answers = [qu['value'] for qu in question['answers']]
             elif question_type_str == 'open':
                 question_answers = [random.randint(10, 150) for _ in range(5)]
             elif question_type_str in ['range', 'reactance_range']:

@@ -12,6 +12,19 @@ def get_headers(token):
     }
 
 
+def signup(email, password):
+    r = requests.post(MAIN_API + USERMANAGER + '/signup', json={
+        'name': 'testuser',
+        'email': email,
+        'password': password,
+        'password_confirmation': config.PASSWORD
+    })
+    if r.status_code == 200:
+        return True
+    print(r.status_code, r.content)
+    return False
+
+
 def register():
     r = requests.post(MAIN_API + USERMANAGER + '/signup', json={
         'name': 'testuser',
