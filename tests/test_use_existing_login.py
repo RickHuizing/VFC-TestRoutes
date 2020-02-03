@@ -1,6 +1,0 @@
-import config
-from src import location, auth, intake
-
-access_token = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE1Nzg1NzYzNjksIm5iZiI6MTU3ODU3NjM2OSwianRpIjoiOGM0MGM5Y2ItMWE5MC00MzY5LTkzMDItOWE3NGUwNDlmYTZmIiwiZXhwIjoxNTc4NTc3MjY5LCJpZGVudGl0eSI6MTI0LCJmcmVzaCI6ZmFsc2UsInR5cGUiOiJhY2Nlc3MifQ.dUOXAJdLMnUAQ-FsZ2zcgdEaOxBKHVJi5gXRwioic44'
-
-quesitons = intake.get_questions(access_token)

@@ -26,7 +26,6 @@ u_answers = intake.build_answers_from_response(response)
 print('keys:', response.keys())
 questions = response.pop('questions')
 print(json.dumps(response, indent=1))
-items = response['items']
 sections = response['sections']
 question_types = response['question_types']
 print()
@@ -47,7 +46,7 @@ for section, questions in questions.items():
 print()
 # print(json.dumps(u_answers, indent=1))
 print(intake.post_answers(u_answers, access_token))
-
+exit()
 userdata = 'http://localhost:8082'
 GET_USERS = "/api/get_users"
 users = requests.get(userdata + GET_USERS)

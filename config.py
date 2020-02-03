@@ -15,4 +15,5 @@ def random_email_prefix():
 
 
 USEREMAIL = random_email_prefix() + '@email.email'
+# USEREMAIL = 'admin1' + '@email.email'
 PASSWORD = 'password'

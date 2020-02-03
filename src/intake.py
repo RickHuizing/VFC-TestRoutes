@@ -48,7 +48,4 @@ def build_answers_from_response(response):
                 section_answers[question_id] = random.choice(question_answers)
 
         u_answers[section_id] = section_answers
-    u_ratings = {}
-    for item_id, item_action in response['items'].items():
-        u_ratings[item_id] = random.randint(1, 5)
-    return {'ratings': u_ratings, 'answers': u_answers}
+    return {'answers': u_answers}

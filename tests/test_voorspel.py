@@ -2,7 +2,7 @@ from datetime import datetime
 
 from src import voorspel
 
-user_id = 106
+user_id = 114
 
 start = datetime.now()
 model = voorspel.make_model(user_id)
